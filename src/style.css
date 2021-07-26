@@ -1,0 +1,326 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  font-family: 'Fira Sans', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  font-weight: normal;
+  min-height: 100vh;
+  transition: background-color 0.2s linear;
+}
+
+.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+.dark {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.light .brainExercise__themes {
+  border: 1px solid #000000;
+}
+.dark .brainExercise__themes {
+  border: 1px solid #ffffff;
+}
+
+.light .brainExercise__themes span {
+  background-color: #000000;
+}
+.dark .brainExercise__themes span {
+  background-color: #ffffff;
+}
+
+
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.brainExercise__title {
+  position: absolute;
+  top: 100px;
+  left: 15px;
+}
+
+.brainExercise__wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: calc(100vh - 81px);
+  padding: 15px;
+  padding-left: 35px;
+  margin: 0 auto;
+}
+
+.brainExercise__scene{
+  margin: 50px auto;
+  position: relative;
+  text-align: center;
+
+}
+
+.animation .brainExercise__rocket {
+  transform: translate(-100px, -450%);
+}
+
+.brainExercise__rocket {
+  width: 30px;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translate(-100px, 0);
+  transition: 1s linear;
+}
+
+.brainExercise__rocket  img {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.brainExercise__rocket::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 45px;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 0;
+  background: linear-gradient(#ff0000, transparent);
+  transition: 0.1s linear;
+}
+
+.animation .brainExercise__rocket::before {
+  height: 30px;
+}
+
+
+.brainExercise__logo {
+  width: 60px;
+}
+
+.brainExercise__logo img {
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.brainExercise__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 15px;
+}
+
+.brainExercise__themes {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 50px;
+  height: 25px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+
+.brainExercise__themes input {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+}
+.brainExercise__themes span {
+  position: absolute;
+  left: 3px;
+  display: block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  transform: translateX(0);
+  transition: 0.3s linear;
+}
+
+.brainExercise__themes input:checked + span {
+  left: 0;
+  transform: translateX(125%);
+}
+
+.brainExercise__start {
+  opacity: 1;
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+  color: inherit;
+  font-size: 24px;
+  line-height: 140%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+
+.animation .brainExercise__start {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.brainExercise__start:focus,
+.brainExercise__start:hover {
+  color: #ff0000;
+}
+
+
+.brainExercise__result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brainExercise__value-res,
+.brainExercise__result span,
+.brainExercise__value-1,
+.brainExercise__value-2  {
+  font-size: 30px;
+  line-height: 140%;
+}
+
+.brainExercise__value-1,
+.brainExercise__value-2 {
+  padding: 0 5px;
+}
+
+.brainExercise__answer {
+
+}
+
+.brainExercise__value-res{
+  max-width: 250px;
+  outline: none;
+}
+
+.light .brainExercise__value-res:focus {
+  border: 2px solid #000000;
+}
+
+.dark .brainExercise__value-res:focus {
+  border: 2px solid #ffffff;
+}
+
+.brainExercise__answer {
+  margin-top: 30px;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 140%;
+
+}
+
+.brainExercise__answer-text {}
+.brainExercise__answer-value {}
+.brainExercise__timer {
+
+}
+.brainExercise__timer span{
+  min-width: 21px;
+  display: inline-block;
+  font-size: 20px;
+  line-height: 140%;
+}
+
+.brainExercise__reset {
+  opacity: 0;
+  margin-top: auto;
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 140%;
+  border: none;
+  background: none;
+  outline: none;
+  color: inherit;
+  transition: 1s linear;
+}
+
+.animation ~ .brainExercise__info,
+.animation ~ .brainExercise__info,
+.animation ~ .brainExercise__reset {
+  opacity: 1;
+}
+
+
+.brainExercise__info {
+  max-width: 600px;
+  opacity: 0;
+  text-align: center;
+}
+
+.brainExercise__info-1,
+.brainExercise__info-2 {
+  width: 100%;
+  padding: 10px;
+  transition: 1s linear;
+}
+
+.brainExercise__info-1 {
+  margin-top: 20px;
+}
+
+.brainExercise__info {
+  position: absolute;
+  bottom: 150px;
+  margin-top: 10px;
+}
+
+.brainExercise__info-1 span,
+.brainExercise__info-2 span {
+  color: #ff0000;
+}
+
+@media (max-width: 640px) {
+  .brainExercise__info {
+    max-width: 300px;
+  }
+
+  .brainExercise__title {
+    font-size: 24px;
+    line-height: 140%;
+    left: 5px;
+  }
+
+  .brainExercise__info {
+    position: absolute;
+    bottom: 100px;
+  }
+
+  .brainExercise__value-res,
+  .brainExercise__result span,
+  .brainExercise__value-1,
+  .brainExercise__value-2,
+  .brainExercise__answer,
+  .brainExercise__reset {
+    font-size: 20px;
+    line-height: 140%;
+  }
+}
