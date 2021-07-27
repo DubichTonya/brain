@@ -13,21 +13,30 @@ function brainExercise() {
 	let hoursBlock = document.querySelector('.brainExercise__timer .hours');
 	let animationBlock = document.querySelector('.brainExercise__scene');
 	let resetBtn = document.querySelector('.brainExercise__reset');
+	let checkBtn = document.querySelector('.brainExercise__value-check');
+	let nextBtn = document.querySelector('.brainExercise__next');
 	let timer;
 
 	const body = document.querySelector('body');
+	checkBtn.setAttribute('disabled', 'true');
 
 	function brainExerciseStart() {
 		result.disabled = true;
+		checkBtn.disabled = true;
 		themesBtn.addEventListener('change', themesHandler)
 		startBtn.addEventListener('click', startPlay);
 		document.addEventListener('keypress', checkValue);
 		document.addEventListener('keypress', restart);
+		checkBtn.addEventListener('click', checkValue);
+		nextBtn.addEventListener('click', restart);
 		resetBtn.addEventListener('click', brainExerciseReset)
+
 	}
 
 	function brainExerciseReset() {
 		result.disabled = true;
+		checkBtn.disabled = true;
+		checkBtn.setAttribute('disabled', 'true');
 		clearInterval(timer);
 		secondsBlock.textContent = '00';
 		minutesBlock.textContent = '00';
@@ -93,7 +102,7 @@ function brainExercise() {
 		}
 
 		if (hoursBlock.textContent === hours.toString()) {
-			return;
+			return false;
 		} else {
 			hoursBlock.textContent = hours;
 		}
@@ -128,9 +137,16 @@ function brainExercise() {
 		return (parseInt(num, 10) < 10 ? '0' : '') + num
 	}
 
+	function nextAnimation() {
+		nextBtn.classList.add('brainExercise__next-animation');
+		nextBtn.addEventListener('animationend', () => {
+			nextBtn.classList.remove('brainExercise__next-animation')
+		})
+	}
+
 
 	function checkValue(e) {
-		if (e.code === 'Enter') {
+		if (e.code === 'Enter' || (e.target.classList.contains('brainExercise__value-check') || e.target.closest('.brainExercise__value-check'))) {
 			if (result.value == value_1.textContent * value_2.textContent) {
 				answerText.textContent = 'Правильно';
 				answerResult.textContent = '';
@@ -143,7 +159,7 @@ function brainExercise() {
 	}
 
 	function restart(e) {
-		if (e.code === 'Space') {
+		if (e.code === 'Space' || (e.target.classList.contains('brainExercise__next') || e.target.closest('.brainExercise__next'))) {
 			refreshPlay()
 		}
 	}
@@ -151,21 +167,25 @@ function brainExercise() {
 
 	function startPlay() {
 		result.disabled = false;
+		checkBtn.disabled = false;
 		result.value = '';
 		answerResult.textContent = '';
 		answerText.textContent = '';
 		value_1.textContent = generateRandomValue('2');
 		value_2.textContent = generateRandomValue('2');
-		animationBlock.classList.add('animation')
+		animationBlock.classList.add('animation');
 		timerHandler();
 	}
 
 	function refreshPlay() {
+
 		result.value = '';
 		answerResult.textContent = '';
 		answerText.textContent = '';
 		value_1.textContent = generateRandomValue('2');
 		value_2.textContent = generateRandomValue('2');
+		nextAnimation();
+
 	}
 
 	function generateRandomValue(count) {

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../work/ZTOS_APP/.idea/ZTOS_APP.iml" filepath="$PROJECT_DIR$/../work/ZTOS_APP/.idea/ZTOS_APP.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/brainExercise.iml" filepath="$PROJECT_DIR$/.idea/brainExercise.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../work/hatimaki_new/.idea/hatimaki_new.iml" filepath="$PROJECT_DIR$/../work/hatimaki_new/.idea/hatimaki_new.iml" />
       <module fileurl="file://$PROJECT_DIR$/../work/velovex/.idea/velovex.iml" filepath="$PROJECT_DIR$/../work/velovex/.idea/velovex.iml" />
     </modules>
   </component>

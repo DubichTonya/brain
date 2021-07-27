@@ -36,14 +36,16 @@
 </header>
 <main class="brainExercise__wrapper">
 	<h1 class="brainExercise__title" style="writing-mode: vertical-rl">Тренажер для мозга</h1>
+
 	<div class="brainExercise__scene">
-
-
 		<div class="brainExercise__rocket">
 			<img src="assets/rocket.png" alt="Ракета">
 		</div>
 		<button class="brainExercise__start">
 			<span>Начать</span>
+		</button>
+		<button type="button" class="brainExercise__next">
+			<span class="visually-hidden">Следующий</span>
 		</button>
 	</div>
 
@@ -52,17 +54,20 @@
 			<span class="brainExercise__value-1">10</span> * <span class="brainExercise__value-2">10</span>
 		</div>
 		<span>=</span>
-		<input type="text" class="brainExercise__value-res"/>
+		<div class="brainExercise__value-wrapper">
+			<input type="text" class="brainExercise__value-res"/>
+			<button type="button" class="brainExercise__value-check">
+				<span class="visually-hidden">Подтвердить</span>
+			</button>
+		</div>
 	</div>
 	<div class="brainExercise__answer">
 		<span class="brainExercise__answer-text"></span> <span class="brainExercise__answer-value"></span>
 	</div>
 	<div class="brainExercise__info">
-		<div class="brainExercise__info-1"><span>&#9734;</span> Для подтверждения ответа нажмите
-			&laquo;ENTER&raquo;
+		<div class="brainExercise__info-1"><span>&#9734;</span> &laquo;ENTER&raquo; &mdash; подтверждение набраного ответа.
 		</div>
-		<div class="brainExercise__info-2"><span>&#9734;</span> Для выбора другого примера нажмите &laquo;Пробел&raquo;
-			(SPACE)
+		<div class="brainExercise__info-2"><span>&#9734;</span> &laquo;Пробел&raquo; &mdash; выбора другого примера.
 		</div>
 	</div>
 	<button class="brainExercise__reset" type="button">Сбросить</button>
