@@ -89,6 +89,7 @@ function brainExercise() {
 		let minutes = getMinutes(count);
 		let hours = getHours(count);
 
+
 		if (secondsBlock.textContent === seconds.toString()) {
 			return;
 		} else {
@@ -98,7 +99,7 @@ function brainExercise() {
 		if (minutesBlock.textContent === minutes.toString()) {
 			return;
 		} else {
-			secondsBlock.textContent = minutes;
+			minutesBlock.textContent = minutes;
 		}
 
 		if (hoursBlock.textContent === hours.toString()) {
@@ -146,6 +147,7 @@ function brainExercise() {
 
 
 	function checkValue(e) {
+
 		if (e.code === 'Enter' || (e.target.classList.contains('brainExercise__value-check') || e.target.closest('.brainExercise__value-check'))) {
 			if (result.value == value_1.textContent * value_2.textContent) {
 				answerText.textContent = 'Правильно';
